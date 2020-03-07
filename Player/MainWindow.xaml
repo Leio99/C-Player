@@ -1,0 +1,29 @@
+﻿<Window x:Class="Player.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Player"
+        mc:Ignorable="d"
+        Title="Music player" Height="450" Width="710" ResizeMode="CanMinimize" Icon="icon.ico">
+    <Grid>
+        <ListBox x:Name="songlist" Cursor="Hand" HorizontalAlignment="Left" Width="248" Margin="0,40,0,0" SelectionChanged="Songlist_SelectionChanged" BorderThickness="0,1,1,0"/>
+        <Border BorderBrush="#FFABADB3" BorderThickness="0,0,1,1" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="248">
+            <Label Content="YOUR PLAYLIST" FontWeight="DemiBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.8,0.2,0.2,0.2"/>
+        </Border>
+        <Border BorderThickness="1" Panel.ZIndex="2" Height="1" VerticalAlignment="Top" BorderBrush="#FFABADB3" Margin="0"/>
+        <Label Visibility="Visible" x:Name="infotext" Content="Select a song from the playlist" Margin="248,1,-0.4,0" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF969696"/>
+        <Grid x:Name="player_desk" Visibility="Hidden" Margin="248,2,-0.4,0">
+            <Image x:Name="playpause" Cursor="Hand" ToolTip="Play" HorizontalAlignment="Center" Height="154" Source="https://i.imgur.com/pYOZg1A.png" Margin="0,70,0,0" VerticalAlignment="Top" Width="154" MouseUp="playThisSong"/>
+            <TextBlock x:Name="start" Text="00:00:00" HorizontalAlignment="Left" Margin="20,343,0,0" VerticalAlignment="Top"/>
+            <TextBlock x:Name="end" Margin="0,343,20,0" Text="00:00:00" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="49"/>
+            <TextBlock x:Name="progress" Panel.ZIndex="1" Height="2" Margin="74,351,0,0" TextWrapping="Wrap" Background="#FF2E70DF" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0"/>
+            <TextBlock Height="2" Margin="74,351,0,0" TextWrapping="Wrap" Background="#FFB1B1B1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"/>
+            <TextBlock x:Name="songtitle" Margin="0,243,0,0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" VerticalAlignment="Top" Height="30" Foreground="Gray"/>
+            <CheckBox Content="Automatically play next song" HorizontalContentAlignment="Right" x:Name="autoplay" Margin="0,380,20,0" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Right" Width="175" Checked="switchAutoplay"/>
+            <Image Source="https://i.imgur.com/3Iu2fSv.png" Height="100" Cursor="Hand" Margin="321,103,35.4,0" VerticalAlignment="Top" MouseUp="playNextSong"/>
+            <Image Source="https://i.imgur.com/kugOwpz.png" Height="100" Cursor="Hand" Margin="36,103,320.4,0" VerticalAlignment="Top" MouseUp="playPreviousSong"/>
+            <CheckBox Content="Loop" HorizontalContentAlignment="Left" x:Name="loop" Margin="20,380,0,0" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Checked="switchLoop"/>
+        </Grid>
+    </Grid>
+</Window>
